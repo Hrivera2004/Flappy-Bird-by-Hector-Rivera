@@ -26,7 +26,7 @@ public class character implements Runnable{
     }
     public void hop(){
         if (posY-40>=0) {
-            posY-=40;
+            posY-=100;
             flappy.setLocation(200,posY); 
         } 
     }
@@ -42,7 +42,7 @@ public class character implements Runnable{
                 }
                 
                 try{
-                    Thread.sleep(200);
+                    Thread.sleep(50);
                 }catch(Exception x){
                     x.printStackTrace();
                 }

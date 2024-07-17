@@ -90,11 +90,13 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton_StartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_StartMouseClicked
         // TODO add your handling code here:
-        Thread thread = new Thread(x);
+        Thread thread = new Thread(flappy);
         thread.start();
         jButton_Start.setVisible(false); 
-        Thread s = new Thread(y);
-        s.start();
+         
+        Thread si = new Thread(pipes);
+        si.start();
+        
     }//GEN-LAST:event_jButton_StartMouseClicked
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -104,7 +106,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jPanel_gamePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_gamePanelMouseClicked
        // TODO add your handling code here:
-       x.hop();
+       flappy.hop();
     }//GEN-LAST:event_jPanel_gamePanelMouseClicked
 
     private void jPanel_gamePanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel_gamePanelKeyPressed
@@ -151,6 +153,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Start;
     private javax.swing.JPanel jPanel_gamePanel;
     // End of variables declaration//GEN-END:variables
-    character x = new character(this);
-    obstaculo y = new obstaculo(this);
+    character flappy = new character(this);
+    Pipes pipes = new Pipes(this);
 }

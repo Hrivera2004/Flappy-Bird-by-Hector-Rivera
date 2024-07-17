@@ -22,7 +22,7 @@ public class game extends Thread{
     @Override
     public void run() {
        while(true){
-           new obstaculo(mainFrame);
+           
             try {
                 Thread.sleep(1000);
             } catch (Exception x) {
