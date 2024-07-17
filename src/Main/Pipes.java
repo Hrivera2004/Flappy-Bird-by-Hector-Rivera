@@ -24,10 +24,10 @@ public class Pipes implements Runnable {
     int x = 400;
 
     public Pipes(JFrame frame) {
-        top.setBounds(x, -300, 100, size[rand.nextInt(4)]+300);
+        top.setBounds(x-100, -300, 100, size[rand.nextInt(4)]+300);
         top.setBackground(Color.green);
-        int y = (top.getHeight()-300) + rand.nextInt(201) + 100;
-        bottom.setBounds(x, y, 100, 500 - y+300);
+        int y = (top.getHeight()-300) + rand.nextInt(201) + 150;
+        bottom.setBounds(x-100, y, 100, 500 - y+300);
         bottom.setBackground(Color.green);
         add(frame);
     }
@@ -67,32 +67,31 @@ public class Pipes implements Runnable {
         bottom.setLocation(x, bottom.getY());
     }
 
-    public void move_y() {
-        int movement = 5;
+    public void move_y(int movement) {
         top.setLocation(top.getX(), top.getY()+movement);
         bottom.setLocation(bottom.getX(), bottom.getY()+movement);
-        if (top.getY()==-450) {
-             movement = 5;
-        }else if (bottom.getY() == 450){
-            movement = -5;
-        }
     }
 
     @Override
     public void run() {
         boolean existing = true;
-        System.out.println(top.getY());
-        System.out.println(bottom.getY());
-
+        int contador = 0;
+        int movement = (rand.nextInt(2)+1 == 1 ? -1:1);
+        System.out.println(movement);
         while (existing) {
             if (top.getX() + 100 != 0) {
+                move_y(movement*5);
                 move_x();
-                move_y();
             } else {
                 existing = false;
             }
             try {
                 Thread.sleep(50);
+                if (contador == 2000) {
+                    movement*=-1;
+                    contador = 0;
+                }
+                contador+=50;
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Error-pipes");

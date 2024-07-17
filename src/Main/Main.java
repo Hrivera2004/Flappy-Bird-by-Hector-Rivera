@@ -93,10 +93,6 @@ public class Main extends javax.swing.JFrame {
         Thread thread = new Thread(flappy);
         thread.start();
         jButton_Start.setVisible(false); 
-         
-        Thread si = new Thread(pipes);
-        si.start();
-        
     }//GEN-LAST:event_jButton_StartMouseClicked
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
